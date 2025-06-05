@@ -1,4 +1,4 @@
-import 'package:elaro/features/products/view/pages/products_pages.dart';
+import 'package:elaro/features/home/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,13 +13,37 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        ),
+        toolbarHeight: 100,
+        backgroundColor: Colors.orange[700],
+        title: Column(
+          children: [
+            Text("elaro"),
+            TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                prefixIcon: Icon(Icons.search),
+                hintText: "Qidirish",
+              ),
+            ),
+          ],
+        ),
+        centerTitle: true,
+      ),
       body: ValueListenableBuilder(
         valueListenable: currentIndex,
         builder: (context, value, _) {
           return IndexedStack(
             index: value,
             children: [
-              ProductsPage(),
+              HomePage(),
               Container(color: Colors.yellow),
               Container(color: Colors.green),
               Container(color: Colors.grey),

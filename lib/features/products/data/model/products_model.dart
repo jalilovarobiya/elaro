@@ -50,7 +50,7 @@ class Datum {
   String descriptionRu;
   int categoryId;
   int brandId;
-  List<Image> images;
+  List<Img> images;
   List<Attribute> attributes;
 
   Datum({
@@ -93,7 +93,7 @@ class Datum {
     String? descriptionRu,
     int? categoryId,
     int? brandId,
-    List<Image>? images,
+    List<Img>? images,
     List<Attribute>? attributes,
   }) => Datum(
     id: id ?? this.id,
@@ -139,7 +139,7 @@ class Datum {
     descriptionRu: json["description_ru"],
     categoryId: json["category_id"],
     brandId: json["brand_id"],
-    images: List<Image>.from(json["images"].map((x) => Image.fromMap(x))),
+    images: List<Img>.from(json["images"].map((x) => Img.fromMap(x))),
     attributes: List<Attribute>.from(
       json["attributes"].map((x) => Attribute.fromMap(x)),
     ),
@@ -230,21 +230,21 @@ class Attribute {
   };
 }
 
-class Image {
+class Img {
   int id;
   String image;
 
-  Image({required this.id, required this.image});
+  Img({required this.id, required this.image});
 
-  Image copyWith({int? id, String? image}) =>
-      Image(id: id ?? this.id, image: image ?? this.image);
+  Img copyWith({int? id, String? image}) =>
+      Img(id: id ?? this.id, image: image ?? this.image);
 
-  factory Image.fromJson(String str) => Image.fromMap(json.decode(str));
+  factory Img.fromJson(String str) => Img.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Image.fromMap(Map<String, dynamic> json) =>
-      Image(id: json["id"], image: json["image"]);
+  factory Img.fromMap(Map<String, dynamic> json) =>
+      Img(id: json["id"], image: json["image"]);
 
   Map<String, dynamic> toMap() => {"id": id, "image": image};
 }
