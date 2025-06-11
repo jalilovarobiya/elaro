@@ -1,4 +1,5 @@
 import 'package:elaro/core/interceptor/interceptor.dart';
+import 'package:elaro/features/favourite/view/blocs/bloc/favourite_bloc.dart';
 import 'package:elaro/features/products/data/repository/products_repository_impl.dart';
 import 'package:elaro/features/products/view/blocs/product_bloc/bloc/product_bloc.dart';
 import 'package:elaro/features/products/view/blocs/products_bloc/bloc/products_bloc.dart';
@@ -30,6 +31,7 @@ void _repositories() {
 void _blocs() {
   sl.registerFactory(() => ProductsBloc(sl<ProductsRepositoryImpl>()));
   sl.registerFactory(() => ProductBloc(sl<ProductsRepositoryImpl>()));
+  sl.registerLazySingleton(() => FavouriteBloc());
 }
 
 void _dataSources() {}

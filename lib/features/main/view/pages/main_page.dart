@@ -1,3 +1,4 @@
+import 'package:elaro/features/favourite/view/pages/favourite_screen.dart';
 import 'package:elaro/features/home/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class _MainPageState extends State<MainPage> {
             index: value,
             children: [
               HomePage(),
-              Container(color: Colors.yellow),
+              FavouriteScreen(),
               Container(color: Colors.green),
               Container(color: Colors.grey),
               Container(color: Colors.pink),
@@ -64,8 +65,8 @@ class _MainPageState extends State<MainPage> {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
               BottomNavigationBarItem(
-                icon: Icon(Icons.category_outlined),
-                label: "category",
+                icon: Icon(Icons.favorite),
+                label: "favourite",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_cart),
